@@ -29,19 +29,9 @@ class Container extends React.Component {
   render() {
     return (
       <div>
-        {this.state.loading ? (
-          <div>
-            <Navigation />
-            <AddSongBar callback={this.updateList} />
-            loading...
-          </div>
-        ) : (
-          <div>
-            <Navigation />
-            <AddSongBar callback={this.updateList} />
-            <List list={this.state.songs} />
-          </div>
-        )}
+        <Navigation />
+        <AddSongBar callback={this.updateList} />
+        <List list={this.state.songs} />
       </div>
     );
   }

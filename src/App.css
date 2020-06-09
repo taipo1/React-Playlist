@@ -8,9 +8,42 @@ th {
 }
 
 .trash-button {
+  padding-top: 10px;
+  justify-content: center;
+  display: flex;
+  font-size: 1.1em;
   border-radius: 50%;
-  background-color: green;
   height: 40px;
   width: 40px;
   border: none;
+  margin-left: 70px;
+  transition: ease-out all 0.2s;
+}
+
+.trash-button:hover {
+  overflow: hidden;
+  text-align: center;
+  color: white;
+  background-color: red;
+  text-align: left;
+  border-radius: 50px;
+  margin-left: 0;
+  width: 115px;
+  transition: ease-out all 0.2s;
+}
+
+.trash-button span {
+  font-weight: 500;
+  padding-left: 10px;
+  opacity: 0;
+  display: none;
+  transition-delay: 0.2s;
+  transition: ease-out all 0.2s;
+}
+
+.trash-button:hover span {
+  display: inline;
+  opacity: 1;
+  transition-delay: 0.2s;
+  transition: ease-out all 0.2s;
 }
