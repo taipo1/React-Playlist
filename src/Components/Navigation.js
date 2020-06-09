@@ -12,7 +12,7 @@ class Navigation extends React.Component {
   render() {
     return (
       <div>
-        <h1> Navigation Render</h1>
+        <h1> React PlayList</h1>
       </div>
     );
   }

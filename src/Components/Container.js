@@ -2,23 +2,25 @@ import React from "react";
 import Navigation from "./Navigation";
 import List from "./List";
 import AddSongBar from "./Addsongbar";
-import songdb from "./../db/Songdb";
-
+import sortList from "./SortList";
 class Container extends React.Component {
   constructor() {
     super();
-
     this.state = {
-      songs: songdb,
+      songs: [],
     };
   }
 
-  updateList = () => {
+  async componentDidMount() {
+    this.updateList();
+  }
+
+  updateList = async (sort = "") => {
+    const data = await sortList(sort);
     this.setState(() => {
-      const updatedList = songdb.map((song) => song);
-      return { songs: updatedList };
+      const NewState = data.map((item) => item);
+      return { songs: NewState };
     });
-    console.log(this.state.songs);
   };
 
   // functions
@@ -27,7 +29,7 @@ class Container extends React.Component {
       <div>
         <Navigation />
         <AddSongBar callback={this.updateList} />
-        <List list={this.state.songs} />
+        <List callback={this.updateList} list={this.state.songs} />
       </div>
     );
   }

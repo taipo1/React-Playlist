@@ -1,8 +1,84 @@
 .App {
   text-align: center;
 }
+input {
+  background-color: #dfdfdf;
+  color: #333333;
+  margin-left: 20px;
+  border: none;
+}
+
+form .button {
+  background-color: whitesmoke;
+  font-size: 1.05em;
+  color: #333333;
+  padding: 5px 20px;
+  transition: ease-in-out 0.2s;
+}
+
+form .button:hover {
+  background-color: rgb(143, 230, 143);
+  color: #333333;
+}
+label {
+  margin-left: 5px;
+}
+select {
+  background-color: #dfdfdf;
+}
+
+body {
+  background-color: #333333;
+  color: rgb(216, 216, 216);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
 
 th {
   text-align: left;
   padding: 5px 25px 5px 25px;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.trash-button {
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  padding-top: 10px;
+  justify-content: left;
+  display: flex;
+  font-size: 1.1em;
+  height: 40px;
+  width: 22px;
+  border: none;
+  transition: ease-out all 0.25s;
+}
+
+.trash-button:hover {
+  overflow: hidden;
+  text-align: center;
+  color: red;
+  text-align: left;
+  margin-left: 0;
+  width: 110px;
+  transition: ease-out all 0.25s;
+}
+.trash-button:submit {
+  border: none;
+}
+.trash-button span {
+  color: rgba(255, 65, 65, 1);
+  font-weight: 500;
+  padding-left: 10px;
+  transition-delay: 0.1s;
+  transition: ease-out all 0.2s;
+}
+
+.trash-button:hover span {
+  transition-delay: 0.1s;
+  transition: ease-out all 0.2s;
 }
