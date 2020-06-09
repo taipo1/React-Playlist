@@ -1,5 +1,5 @@
 import React from "react";
-import songdb from "./../db/Songdb";
+import apiClient from "./../db/api-clients.js";
 
 class InputField extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class InputField extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    songdb.push(this.state);
+    apiClient.postSong(this.state);
     this.props.callback();
   };
 

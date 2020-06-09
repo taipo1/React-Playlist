@@ -8,6 +8,9 @@ const ListItem = (props) => {
         <th className="song-row__item">{props.song.artist}</th>
         <th className="song-row__item">{props.song.genre}</th>
         <th className="song-row__item">{props.song.rating}</th>
+        <th>
+          <button className="trash-button"></button>
+        </th>
       </tr>
     </tbody>
   );

@@ -6,3 +6,11 @@ th {
   text-align: left;
   padding: 5px 25px 5px 25px;
 }
+
+.trash-button {
+  border-radius: 50%;
+  background-color: green;
+  height: 40px;
+  width: 40px;
+  border: none;
+}

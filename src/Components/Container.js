@@ -2,32 +2,46 @@ import React from "react";
 import Navigation from "./Navigation";
 import List from "./List";
 import AddSongBar from "./Addsongbar";
-import songdb from "./../db/Songdb";
+import apiClient from "./../db/api-clients.js";
 
 class Container extends React.Component {
   constructor() {
     super();
-
+    console.warn("Constructor");
     this.state = {
-      songs: songdb,
+      songs: [],
     };
   }
 
-  updateList = () => {
+  async componentDidMount() {
+    this.updateList();
+  }
+
+  updateList = async () => {
+    const data = await apiClient.getSongs();
     this.setState(() => {
-      const updatedList = songdb.map((song) => song);
-      return { songs: updatedList };
+      const NewState = data.map((item) => item);
+      return { songs: NewState };
     });
-    console.log(this.state.songs);
   };
 
   // functions
   render() {
     return (
       <div>
-        <Navigation />
-        <AddSongBar callback={this.updateList} />
-        <List list={this.state.songs} />
+        {this.state.loading ? (
+          <div>
+            <Navigation />
+            <AddSongBar callback={this.updateList} />
+            loading...
+          </div>
+        ) : (
+          <div>
+            <Navigation />
+            <AddSongBar callback={this.updateList} />
+            <List list={this.state.songs} />
+          </div>
+        )}
       </div>
     );
   }
