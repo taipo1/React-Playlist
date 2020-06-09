@@ -35,8 +35,7 @@ const apiFunctions = {
       rating: obj.rating,
     });
   },
-  deleteTask: async (id) => {
-    console.log(id);
+  deleteSong: async (id) => {
     await apiFunctions.handleRequest(`${API_URL}/${id}.json`, "DELETE");
   },
 };

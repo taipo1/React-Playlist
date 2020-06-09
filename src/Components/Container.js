@@ -2,12 +2,10 @@ import React from "react";
 import Navigation from "./Navigation";
 import List from "./List";
 import AddSongBar from "./Addsongbar";
-import apiClient from "./../db/api-clients.js";
-
+import sortList from "./SortList";
 class Container extends React.Component {
   constructor() {
     super();
-    console.warn("Constructor");
     this.state = {
       songs: [],
     };
@@ -17,8 +15,8 @@ class Container extends React.Component {
     this.updateList();
   }
 
-  updateList = async () => {
-    const data = await apiClient.getSongs();
+  updateList = async (sort = "") => {
+    const data = await sortList(sort);
     this.setState(() => {
       const NewState = data.map((item) => item);
       return { songs: NewState };
@@ -31,7 +29,7 @@ class Container extends React.Component {
       <div>
         <Navigation />
         <AddSongBar callback={this.updateList} />
-        <List list={this.state.songs} />
+        <List callback={this.updateList} list={this.state.songs} />
       </div>
     );
   }

@@ -15,6 +15,7 @@ class InputField extends React.Component {
     event.preventDefault();
     apiClient.postSong(this.state);
     this.props.callback();
+    this.setState({ artist: "", title: "", genre: "", rating: "" });
   };
 
   render() {
@@ -51,6 +52,7 @@ class InputField extends React.Component {
             <option value="rock">Rock</option>
             <option value="pop">Pop</option>
             <option value="hipHop">Hiphop</option>
+            <option value="nederlandstalig">Nederlands talig</option>
           </select>
         </label>
         <label>
@@ -69,7 +71,7 @@ class InputField extends React.Component {
           </select>
         </label>
 
-        <input type="submit" value="Voeg toe" />
+        <input className="button" type="submit" value="Voeg toe" />
       </form>
     );
   }
